@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JunitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-31T08:48:41" hostname="DESKTOP-SFCSP7G" time="35.214">
+  <properties/>
+  <testcase name="getTitle" classname="JunitTest" time="35.214"/>
+  <system-out><![CDATA[ToolsQA
+]]></system-out>
+  <system-err><![CDATA[1630399722306	geckodriver	INFO	Listening on 127.0.0.1:37421
+1630399722960	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headed" "-foreground" "-no-remote" "-profile" "C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofile8tQhLO"
+1630399723844	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofile8tQhLO\\search.json.mozlz4", (void 0)))
+1630399727470	Marionette	INFO	Listening on port 54447
+1630399727808	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Aug 31, 2021 2:48:47 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1630399755039	Marionette	INFO	Stopped listening on port 54447
+JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+]]></system-err>
+</testsuite>
