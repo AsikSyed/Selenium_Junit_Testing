@@ -2,18 +2,16 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class JunitTest {
+
+public class gmailTest {
+
     WebDriver driver;
-    WebDriverWait wait;
 
     @Before
     public void setup() {
@@ -25,18 +23,12 @@ public class JunitTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-
+    @Test
     public void getTitle() {
-        driver.get("https://demoqa.com");
+        driver.get("https://gmail.com");
         String title = driver.getTitle();
         System.out.println(title);
-        Assert.assertTrue(title.contains("ToolsQA"));
-    }
-    @Test
-    public void checkifElementExists() throws InterruptedException {
-        driver.get("https://demoqa.com");
-        Boolean status = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@src='/images/Toolsqa.jpg']"))).isDisplayed();
-        Assert.assertEquals(status, true);
+        Assert.assertTrue(title.contains("Gmail"));
     }
 
     @After
