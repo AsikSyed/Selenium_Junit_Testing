@@ -2,6 +2,7 @@ package seleniumJunit.test;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,7 @@ public class setDate {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
+    @Test
     public void selectDate() {
         driver.get("https://demoqa.com/date-picker");
         driver.findElement(By.id("datePickerMonthYearInput")).clear();

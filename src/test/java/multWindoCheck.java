@@ -31,6 +31,7 @@ public class multWindoCheck {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
+    @Test
   public void multiwindow(){
       driver.get("https://demoqa.com/browser-windows"); driver.findElement(By.id(("windowButton"))).click();
 

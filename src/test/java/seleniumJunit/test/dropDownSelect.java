@@ -2,6 +2,7 @@ package seleniumJunit.test;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,16 +27,11 @@ public class dropDownSelect {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
-    public void selectDropdown() {
+    @Test
+    public void selectDropdown(){
         driver.get("https://demoqa.com/select-menu");
-        Select color = new Select(driver.findElement(By.id("oldSelectMenu")));
-        color.selectByValue("1");
-        Select cars = new Select(driver.findElement(By.id("cars")));
-        if (cars.isMultiple()) {
-            cars.selectByValue("volvo");
-            cars.selectByValue("audi");
-        }
+        Select color=new Select(driver.findElement(By.id("oldSelectMenu")));
+        color.selectByValue("3");
     }
     @After
     public void finishTest() {

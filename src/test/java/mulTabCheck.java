@@ -36,19 +36,22 @@ public class mulTabCheck {
         System.out.println(title);
         Assert.assertTrue(title.contains("ToolsQA"));
     }
-
+    @Test
     public void handleTabs() throws InterruptedException {
         driver.get("https://demoqa.com/links");
         driver.findElement(By.id("simpleLink")).click();
-        sleep(5000);
+        sleep(2000);
         ArrayList<String> w = new ArrayList<String>(driver.getWindowHandles());
-        switch to open tab driver.switchTo().window(w.get(1));
+        //switch to open tab
+        driver.switchTo().window(w.get(1 ));
         System.out.println("New tab title: " + driver.getTitle());
-        // for(String childTab:driver.getWindowHandles()){
-        // driver.switchTo().window(childTab); // }
-        // System.out.printf(driver.getTitle());
-        Boolean status = driver.findElement(By.xpath("//img[@src='/images/Toolsqa.jpg']")).isDisplayed();
-        Assert.assertEquals(true, status);
+// for(String childTab:driver.getWindowHandles()){
+// driver.switchTo().window(childTab);
+// }
+// System.out.printf(driver.getTitle());
+        Boolean status =
+                driver.findElement(By.xpath("//img[@src='/images/Toolsqa.jpg']")).isDisplayed();
+        Assert.assertEquals(true,status);
         driver.close();
         driver.switchTo().window(w.get(0));
     }
