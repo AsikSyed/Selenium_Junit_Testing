@@ -1,18 +1,23 @@
 package seleniumJunit.test;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class dropDownSelect {
+public class takeSnap {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -29,24 +34,18 @@ public class dropDownSelect {
     }
 
     @Test
-    public void selectDropdown() {
-        driver.get("https://demoqa.com/select-menu");
-        Select color = new Select(driver.findElement(By.id("oldSelectMenu")));
-        color.selectByValue("3");
-
-
-//        Select cars = new Select(driver.findElement(By.id("cars")));
-//
-//        cars.selectByValue("volvo");
-//        cars.selectByIndex(1);
-//        cars.selectByValue("audi");
-//        cars.selectByIndex(4);
-
-
+    public void takeScreenShot() throws IOException {
+        driver.get("https://demoqa.com");
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String time = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss-aa").format(new Date());
+        String fileWithPath = "./src/test/resources/screenshots/" + time + ".png";
+        File DestFile = new File(fileWithPath);
+        FileUtils.copyFile(screenshotFile, DestFile);
     }
 
     @After
     public void finishTest() {
+
         driver.close();
     }
 }

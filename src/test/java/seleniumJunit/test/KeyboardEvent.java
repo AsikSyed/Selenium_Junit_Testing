@@ -4,15 +4,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class dropDownSelect {
+public class KeyboardEvent {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -29,24 +31,19 @@ public class dropDownSelect {
     }
 
     @Test
-    public void selectDropdown() {
-        driver.get("https://demoqa.com/select-menu");
-        Select color = new Select(driver.findElement(By.id("oldSelectMenu")));
-        color.selectByValue("3");
-
-
-//        Select cars = new Select(driver.findElement(By.id("cars")));
-//
-//        cars.selectByValue("volvo");
-//        cars.selectByIndex(1);
-//        cars.selectByValue("audi");
-//        cars.selectByIndex(4);
-
-
+    public void keyboardEvents() throws InterruptedException {
+        driver.get("https://www.google.com/");
+        WebElement searchElement = driver.findElement(By.name("q"));
+        Actions action = new Actions(driver);
+        action.moveToElement(searchElement);
+        action.keyDown(Keys.SHIFT);
+        action.sendKeys("Selenium Webdriver").keyUp(Keys.SHIFT).doubleClick().contextClick().perform();
+        Thread.sleep(5000);
     }
 
     @After
     public void finishTest() {
+
         driver.close();
     }
 }

@@ -1,0 +1,23 @@
+ ## Google image search eva ##
+
+$x("//body/div[@id='viewport']/div[@id='searchform']/div[@id='qbc']/form[@id='tsf']/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/span[1]")
+
+$x("//body/div[@id='viewport']/div[@id='searchform']/div[@id='qbc']/form[@id='tsf']/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/span[1]")
+
+$x("//a[contains(text(),'Upload an image')]")
+
+$x("//input[@id='awyMjb']")
+
+upload image css selector.
+//a[contains(text(),'Upload an image')]
+
+
+https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg
+
+
+While upload image to google, if you keep image inside of the resources folder, use this line:
+File file = new File("./src/test/resources/qa.png");
+driver.findElement(By.name("encoded_image")).sendKeys(file.getAbsolutePath());
+instead of this line:
+driver.findElement(By.name("encoded_image")).sendKeys("./src/test/resources/qa.png");
+
